@@ -1,0 +1,642 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="shortcut icon" href="https://media-exp1.licdn.com/dms/image/C4D0BAQFSk7W1KUiG0w/company-logo_200_200/0/1565806901139?e=2159024400&v=beta&t=VokcUH3-LWGBsZnb9hV16SMHeYvn0K3mAUjrL74ydEI">
+    <title>CYGRP Admim</title>
+    
+    <script src="css/modale.css"></script>
+    
+    <!--Table CDN's-->
+    <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css"
+  />
+  <link
+    rel="stylesheet"
+    href="https://cdn.datatables.net/1.10.19/css/dataTables.bootstrap4.min.css"
+  />
+  <link
+    rel="stylesheet"
+    href="https://cdn.datatables.net/responsive/2.2.3/css/responsive.dataTables.min.css"
+  />
+  <link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/boxicons@2.0.0/css/boxicons.min.css"
+  />
+
+  <link rel="stylesheet" href="css/tables2.css" />
+    <!--End Table CDN's-->
+  
+
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    
+    
+
+<!-- CSS only -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
+    <!-- Custom fonts for this template-->
+    <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <link
+        href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+        rel="stylesheet">
+
+    <!-- Custom styles for this template-->
+    <link href="css/style.css" rel="stylesheet">
+    <link href="vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
+
+    
+    <style>
+        .logo-cygrp{
+    height:60px;
+    width:60px;
+    background-color: white;
+    border-radius: 50%;
+}
+
+
+    </style>
+    
+</head>
+
+<body id="page-top" onload="onLoadAdmin()">
+
+    <!-- Page Wrapper -->
+    <div id="wrapper">
+
+        <!-- Sidebar -->
+        <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
+
+            <!-- Sidebar - Brand -->
+            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
+                <div class="sidebar-brand-icon ">
+                    
+                    <img src="https://media-exp1.licdn.com/dms/image/C4D0BAQFSk7W1KUiG0w/company-logo_200_200/0/1565806901139?e=2159024400&v=beta&t=VokcUH3-LWGBsZnb9hV16SMHeYvn0K3mAUjrL74ydEI" alt="" class="logo-cygrp" />
+                </div>
+                <div class="sidebar-brand-text mx-3">It Desk</div>
+            </a>
+
+            <!-- Divider -->
+            <hr class="sidebar-divider my-0" style="color: white;">
+
+            <!-- Nav Item - Dashboard -->
+            <li class="nav-item active">
+                <a class="nav-link" href="Admin.html">
+                    <i class="fas fa-fw fa-tachometer-alt"></i>
+                    <span >Dashboard</span></a>
+            </li>
+
+            <!-- Divider -->
+            <hr class="sidebar-divider" style="color: white;">
+
+            <!-- Heading -->
+            <div class="sidebar-heading text-white">
+                Interface
+            </div>
+
+            <!-- Nav Item - Pages Collapse Menu -->
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
+                    aria-expanded="true" aria-controls="collapseTwo">
+                    <i class="fas fa-fw fa-cog"></i>
+                    <span class="text-white"><b>Inventory</b></span>
+                </a>
+                <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <h6 class="collapse-header"><b>Our Inventory</b></h6>
+                        <a class="collapse-item " href="buttons.html"><b>Allocated</b></a>
+                        <a class="collapse-item " href="cards.html"><b>Free</b></a>
+                    </div>
+                </div>
+            </li>
+
+            <!-- Nav Item - Utilities Collapse Menu -->
+            <!-- <li class="nav-item">
+                <a class="nav-link collapsed" href="#" onclick="auditTrail()">
+                    <i class="fas fa-fw fa-wrench"></i>
+                    <span class="text-white"><b>Audit Trail</b></span>
+                </a>
+               
+            </li> -->
+
+            <!-- Divider -->
+            <hr class="sidebar-divider" style="color: white;">
+
+        
+          
+
+            <!-- Sidebar Toggler (Sidebar) -->
+            <div class="text-center d-none d-md-inline">
+                <button class="rounded-circle border-0" id="sidebarToggle"></button>
+            </div>
+
+            
+        </ul>
+        
+
+        <!-- Content Wrapper -->
+        <div id="content-wrapper" class="d-flex flex-column">
+
+            <!-- Main Content -->
+            <div id="content">
+
+                <!-- Topbar -->
+                <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
+
+                    <!-- Sidebar Toggle (Topbar) -->
+                    <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
+                        <i class="fa fa-bars"></i>
+                    </button>
+
+                    <!-- Topbar Search -->
+                    <div class="d-sm-flex align-items-center justify-content-between mb-4 mt-3">
+                        <h1 class="h3 mb-0 text-gray-600">Dashboard</h1>
+                        
+                    </div>
+
+                    <!-- Topbar Navbar -->
+                    <ul class="navbar-nav ml-auto">
+
+                        <!-- Nav Item - Search Dropdown (Visible Only XS) -->
+                        <li class="nav-item dropdown no-arrow d-sm-none">
+                            <a class="nav-link dropdown-toggle" href="#" id="searchDropdown" role="button"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                
+                            </a>
+                            <!-- Dropdown - Messages -->
+                            <div class="dropdown-menu dropdown-menu-right p-3 shadow animated--grow-in"
+                                aria-labelledby="searchDropdown">
+                                <div class="d-sm-flex align-items-center justify-content-between mb-4">
+                                    <h1 class="h3 mb-0 text-gray-800">Dashboard</h1>
+                                    
+                                </div>
+                            </div>
+                        </li>
+
+                     
+                      
+
+                        <div class="topbar-divider d-none d-sm-block"></div>
+
+                        <!-- Nav Item - User Information -->
+                        <li class="nav-item dropdown no-arrow">
+                            <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <span class="mr-2 d-none d-lg-inline text-gray-600 small" id="aName">Douglas McGee</span>
+                                <img class="img-profile rounded-circle"
+                                    src="https://media-exp1.licdn.com/dms/image/C4D0BAQFSk7W1KUiG0w/company-logo_200_200/0/1565806901139?e=2159024400&v=beta&t=VokcUH3-LWGBsZnb9hV16SMHeYvn0K3mAUjrL74ydEI">
+                            </a>
+                            <!-- Dropdown - User Information -->
+                            <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
+                                aria-labelledby="userDropdown">
+                                
+                                <a class="dropdown-item" href="#" data-toggle="modal" data-target="#myModal-reset" onclick="clearVal();clearpass();"> 
+                                    <i class="fas fa-list fa-sm fa-fw mr-2 text-gray-400"></i>
+                                    Reset Passowrd
+                                </a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
+                                    <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
+                                    Logout
+                                </a>
+                            </div>
+                        </li>
+
+                    </ul>
+
+                </nav>
+                <div class="container-fluid">
+
+                 
+
+                    <div class="scrolling-wrapper">
+                      
+                      
+                        <div id="appendCard" class="row">
+                            
+
+                                <!-- Pending Requests Card Example -->
+                                <div class="col-xl-3 col-md-6 mb-4 cp" id="addCategory"data-toggle="modal" data-target="#myCategoryModal"> 
+                                  <div class="card border-left-warning shadow h-100 py-2">
+                                      <div class="card-body">
+                                          <div class="row no-gutters align-items-center">
+                                              <div class="col mr-2">
+                                                  <div class="text-xs font-weight-bold text-warning text-uppercase ">
+                                                      Add Device Category</div>
+                                              </div>
+                                              <div class="col-auto">
+                                                  <i class="fas fa-plus fa-2x text-gray-300"></i>
+                                              </div>
+                                          </div>
+                                      </div>
+                                  </div>
+                              </div>
+
+                        
+                        </div>
+                    </div>
+
+
+
+
+
+                    <!--Modal Start-->
+                    <div id="myCategoryModal"  class="modal modal-fade">
+
+                        <!-- Modal content -->
+                        <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                           
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+                                
+                              </div>
+                            <div class="modal-body">
+
+                          
+                          
+                            <form name="form1" role="form">
+                                <div class="container">
+                                    <label for="devicename" class="text-color"><b>Device Name</b></label><br><br>
+                                    <input type="text" class="form-control bg-light border-0 small" id="devicename"
+                                        placeholder="Enter Device Name" name="devicename" required><br><br>
+                                        <div class="modal-footer">
+                                        </div>
+                                
+                                            <button class="btn btn-warning" onclick="AddDevice()" type="submit" form="form1">Add
+                                                Device Category</button>
+                                        </div>
+                                </div>
+                            </form>
+                        </div>
+                        </div>
+
+                    </div>
+                  
+                    <!--Modal End-->
+
+                    <div id="content-wrapper" class="d-flex flex-column">
+
+                        <!-- Main Content -->
+                        <div id="content">
+            
+                            
+                            <!-- Begin Page Content -->
+                            <div class="container-fluid">
+            
+                                <!-- Page Heading -->
+                              
+                                <!-- DataTales Example -->
+                                <div class="card shadow mb-4">
+                                    <div class="card-header py-3">
+                                       
+                                    </div>
+                                    <div class="card-body">
+                                        <div class="table-responsive">
+                                            <div class="d-sm-flex align-items-center justify-content-between mb-4">
+                                                <div>
+                                                    <button type="button" id="free" class="btn btn-light" onclick="fetchFree()">Free</button>
+                                                    <button type="button" id="allocated" class="btn btn-light text-white" onclick="fetchAllocated()">Allocated</button>
+                                                </div>
+                                                <center>            
+                                                  <div class="spinner-border text-warning" role="status" id="spin2" style="display: none;">
+                                                      <span class="visually-hidden">Loading...</span>
+                                                  </div>
+                                                </center>  
+                                                
+                                            
+                                                <a href="#" class=" d-sm-inline-block btn btn-sm bg-gradient-primary shadow-sm text-white mt-2" data-toggle="modal" data-target="#addDeviceModal" onclick="addDeviceDashboard();"><i
+                                                    class="fas fa-plus fa-sm text-white"></i> Add Device</a>
+                                        </div>
+                                            
+                                            <div class="container">
+                                                <div class="row py-5">
+                                                    
+                                                  <div class="col-12">
+                                                     
+                                                    <input type="text" id="myInput" onkeyup="searchFunction()"
+                                                            placeholder="Search for device ...">
+                                                    <table id="Table" class="table table-fixed">
+                                                        
+                                                        
+                                                        <tbody id="infoDevices">
+                                                         
+                                                        </tbody>
+                                                      </table>
+                                                  </div>
+                                                </div>
+                                              </div>
+                                              
+                                              <div class="container text-center">
+                                               
+                                              </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+            <!-- Footer -->
+            <footer class="sticky-footer bg-white">
+                <div class="container my-auto">
+                    <div class="copyright text-center my-auto">
+                        <span>Copyright &copy; CYGRP</span>
+                    </div>
+                </div>
+            </footer>
+            <!-- End of Footer -->
+
+        </div>
+        <!-- End of Content Wrapper -->
+
+    </div>
+    <!-- End of Page Wrapper -->
+
+    <!-- Scroll to Top Button-->
+    <a class="scroll-to-top rounded" href="#page-top">
+        <i class="fas fa-angle-up"></i>
+    </a>
+
+    <!-- Logout Modal-->
+    <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="form-group text-color">
+                    
+                    
+                  </div>
+                <div class="modal-body text-color">Select "Logout" below if you are ready to end your current session.</div>
+                <div class="modal-footer">
+                    <button class="btn btn-secondary" type="button" data-dismiss="modal" >Cancel</button>
+                    <a class="btn btn-primary" href="./Login/index.html" onclick="logout()">Logout</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--Add Device Modal-->
+    <div class="modal fade" id="addDeviceModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h3 class="text-color" style="margin-left: 0;">Add Device </h3>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+              <!-- <h4 class="modal-title" id="myModalLabel">Add Device</h4> -->
+            </div>
+            <div class="modal-body">
+      
+            <form role="form">
+            <div class="form-group">
+              <label for="exampleInputEmail1" class="text-color">Unique Code</label>
+              <input type="text" class="form-control" id="uniquecode" placeholder=" Enter unique code">
+              <div id="valid9" class="cred"></div>
+            </div>
+            <div class="form-group">
+              <label for="exampleInputEmail1" class="text-color">Device Name</label>
+              <input type="text" class="form-control" id="newDeviceName" placeholder="Enter device name">
+              <div id="valid10" class="cred"></div>
+            </div>      
+      
+            <div class="text-color">
+                <select
+                id="categoryDropdown"
+                class="form-select"
+                aria-label="Default select example"
+              >
+                
+               
+                
+              </select>
+            </div>  
+            <div id="valid11" class="cred"></div>
+          </form>
+          </div>    
+            <div class="modal-footer">
+              <button type="button" class="btn btn btn-warning" onclick="validation7()" id="bt8">Add Device</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    <!--Add Device Modal Ends-->
+
+<!--Reset Password-->
+<div class="modal fade" id="myModal-reset" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3 class="text-color" style="margin-left: 0;">Reset Password</h3>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+        
+      </div>
+      <div class="modal-header">
+        <img src="img\imgs1.jpeg" alt="avatar" class="img-responsive">
+      </div>
+      <div class="modal-body">
+
+        <form role="form">
+            <div class="form-group">
+              <label for="exampleInputEmail1" class="text-color">Current Password</label>
+              <input type="password" class="form-control" id="currentpassword" required placeholder="Enter Current Password">
+            <div id="valid1" class="cred"></div>
+            </div>
+            <div class="form-group">
+              <label for="exampleInputEmail1" class="text-color">New Password</label>
+              <input type="password" class="form-control" id="password1" required placeholder="Enter New Password">
+            <div id="valid2" class="cred"></div>
+            </div>
+            <div class="form-group">
+              <label for="exampleInputEmail1" class="text-color">ReEnter Password</label>
+              <input type="password" class="form-control" id="password2"  required placeholder="Enter New Password Again">
+            <div id="valid3" class="cred"></div>
+            </div>
+            
+          </form>
+          </div>    
+            <div class="modal-footer">
+              <button type="button" class="btn btn btn-warning" id="bt4" onclick="resetPassword()">Reset Password</button>
+             
+            </div>
+          </div>
+        </div>
+      </div>
+<!--End Of reset Password-->
+<!--Allocate Device-->
+
+<div class="modal fade" id="allocateDeviceModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h3 class="text-color" style="margin-left: 0;">Allocate Device</h3>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+          <!-- <h4 class="modal-title" id="myModalLabel">Add Device</h4> -->
+        </div>
+        <div class="modal-body">
+  
+        <form role="form">
+       
+        <div class="form-group">
+          <div id = "dnn" style="display:none; color: black ;"></div>
+          <div id="dcc"style="display:none; color: black;"></div>
+          <label for="exampleInputEmail1" class="text-color"  id="aemail">Employee Email</label>
+          <div class="text-color">
+            <select
+         
+            id="employeeDropdown"
+            class="form-select"
+            aria-label="Default select example" 
+          >
+          </select>
+        </div>  
+        <div id="valid8" class="cred"></div>
+        </div>      
+        
+
+
+
+        
+      </form>
+      </div>    
+        <div class="modal-footer">
+          <button type="button" class="btn btn btn-warning" onclick="validation6();allocatemail()" id="bt7">Allocate</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<!--End Allocate Device-->
+
+
+<!--Audit Trail Modal-->
+<div class="modal fade" id="auditTrailModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="text-color"><b>Audit Trail</b></h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+        <!-- <h4 class="modal-title" id="myModalLabel">Add Device</h4> -->
+      </div>
+      <div class="modal-body">
+
+      <form role="form">   
+
+      <div class="text-black">
+        <p id="authorisePara" style="display:none">No Audit History</p>
+        <table id="auditTrailTable">
+          <tbody>
+           
+            
+          </tbody>
+        </table>
+      </div>  
+    </form>
+    </div>    
+      <div class="modal-footer">
+        
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!--End Of Audit Trail-->
+<!--Add Device category -->
+<div class="modal fade" id="myModalAddDevice" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" >
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3 class="text-color" style="margin-left: 0;">Add Device Category</h3>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+        
+      </div>
+     
+      <div class="modal-body">
+
+        <form name="form1" role="form">
+          <div class="container">
+              <label for="devicename" class="text-color"><b>Device Name</b></label><br><br>
+              <input type="text" class="form-control bg-light border-0 small" id="deviceCategory"
+                  placeholder="Enter Device Name" name="devicename">
+                  <div id="valid7" class="cred ml-3" ></div>
+                  <br>
+                  <div class="modal-footer">        
+                  <button type="button" class="btn btn btn-warning" onclick="validation5();" id="bt6">Add Device category</button>
+                </div> 
+                </div>
+          </div>
+      </form>
+          </div>    
+            
+          </div>
+        </div>
+      </div>
+
+
+<!--End Of Add device -->
+<!--QR CODE MODAL-->
+<div class="modal fade" id="myModalQR" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3 class="text-color" style="margin-left: 0;">QR Code</h3>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+        
+      </div>
+      <div class="modal-header">
+        <img src="" alt="avatar" class="img-responsive" id="myQRimg">
+      </div>
+         
+           
+          </div>
+        </div>
+      </div>
+
+<!--End OF QR-->
+
+
+
+
+   <!-- Bootstrap core JavaScript-->
+    <!-- <script src="js/modale.js"></script> -->
+    <script src="js/common.js"></script>
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <!-- JavaScript Bundle with Popper -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script>
+
+   
+
+<!-- Core plugin JavaScript-->
+    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+
+    <!-- Custom scripts for all pages-->
+    <script src="js/sb-admin-2.min.js"></script>    
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.9-1/crypto-js.min.js"></script>
+
+<script  src="js/tables2.js">
+</script>
+<script src="js/admin.js"></script>
+<script src="Login/js/script.js"></script>
+<script
+  src="https://code.jquery.com/jquery-2.2.4.min.js"
+  integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
+  crossorigin="anonymous"></script>
+<script src="https://smtpjs.com/v3/smtp.js"></script>
+
+
+<!--Table Scripts End-->
+
+
+
+
+
+</body>
+
+</html>
